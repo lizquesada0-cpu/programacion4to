@@ -236,6 +236,7 @@ Ingrese el número de opción que desea:
         consultarSucursales()
     elif opcion == "5":
         sacarTurno()
+ 
    continuar = input("\n¿Desea realizar otra operación? (SI/NO): ").strip().upper()
     while continuar not in ["SI", "NO"]:
         continuar = input("Respuesta inválida. Ingrese SI o NO: ").strip().upper()
