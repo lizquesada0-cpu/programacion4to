@@ -215,7 +215,7 @@ def sacarTurno():
         print("Sucursal no válida.")
         return
 
-    # Generar 3 horarios disponibles aleatorios en los próximos días
+   
     horarios = []
     for i in range(3):
         dias = random.randint(1, 7)
@@ -265,7 +265,7 @@ Ingrese el número de opción que desea:
 5. Solicitar un turno
 >>>>>>>>>>>>: """).strip()
 
-    # VERIFICAR QUE LA OPCIÓN INGRESADA SEA CORRECTA
+    # VERIFICAR QUE LA OPCIoN INGRESADA SEA CORRECTA
     while opcion not in ["1", "2", "3", "4", "5"]:
           opcion = input("Opción incorrecta. Ingrese un número del 1 al 5: ").strip()
 
