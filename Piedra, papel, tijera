@@ -1,0 +1,67 @@
+import random
+
+OPCIONES = {"1": "piedra", "2": "papel", "3": "tijera"}
+
+# Cada opción vence a la indicada
+GANA_A = {"piedra": "tijera", "papel": "piedra", "tijera": "papel"}
+
+
+def pedir_jugada():
+    while True:
+        print("\nElige tu jugada:")
+        print("  1) Piedra")
+        print("  2) Papel")
+        print("  3) Tijera")
+        print("  0) Salir")
+        eleccion = input("Tu opción: ").strip()
+        if eleccion == "0":
+            return None
+        if eleccion in OPCIONES:
+            return OPCIONES[eleccion]
+        print("Opción no válida, intenta de nuevo.")
+
+
+def resultado(jugador, computadora):
+    if jugador == computadora:
+        return "empate"
+    return "jugador" if GANA_A[jugador] == computadora else "computadora"
+
+
+def jugar():
+    puntos = {"jugador": 0, "computadora": 0, "empate": 0}
+    print("=== PIEDRA, PAPEL O TIJERA ===")
+
+    while True:
+        jugador = pedir_jugada()
+        if jugador is None:
+            break
+
+        computadora = random.choice(list(OPCIONES.values()))
+        print(f"\nTú elegiste: {jugador}")
+        print(f"La computadora eligió: {computadora}")
+
+        ganador = resultado(jugador, computadora)
+        puntos[ganador] += 1
+
+        if ganador == "empate":
+            print("¡Empate!")
+        elif ganador == "jugador":
+            print("¡Ganaste esta ronda! 🎉")
+        else:
+            print("Perdiste esta ronda 😅")
+
+        print(
+            f"Marcador -> Tú: {puntos['jugador']} | "
+            f"PC: {puntos['computadora']} | Empates: {puntos['empate']}"
+        )
+
+    print("\n=== RESULTADO FINAL ===")
+    print(
+        f"Tú: {puntos['jugador']} | PC: {puntos['computadora']} | "
+        f"Empates: {puntos['empate']}"
+    )
+    print("¡Gracias por jugar!")
+
+
+if __name__ == "__main__":
+    jugar()
